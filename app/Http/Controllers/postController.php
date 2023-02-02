@@ -26,4 +26,28 @@ $post=
 
 return view('posts.show',['post'=>$post]);
     }
+    public function create(){
+        return view("posts.create");
+    }
+    public function update(){
+return view('posts.update');
+    }
+  public function destroy(Request $post)
+{
+  findOrFail($post)->delete();
+  return view('posts.destroy');
+}
+public function store(Request $request ){
+    // $data=request()->all();
+    // $title=$data['title'];
+    // $description=$data['description'];
+    // $potcreator=$data['post_creator'];
+    // $title=request()->title;
+// dd($request);
+$data=$request->all();
+dd($data);
+//take the form submission //store in db
+    return 'we are in store';
+}
+
 }
