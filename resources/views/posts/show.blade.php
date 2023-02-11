@@ -16,7 +16,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-                <a class="nav-link active" href="{{route('posts.allpost')}}">All Posts</a>
+                <a class="nav-link active" href="{{route('posts.index')}}">All Posts</a>
             </div>
         </div>
     </div>
@@ -28,9 +28,11 @@
     post info
   </div>
   <div class="p-3">
-
-  <h4 >special statment:</h4><span>{{$post['title']}}</span>
-   <h4>description:</h4><span>{{$post['description']}}</span>
+{{-- @dd($post) --}}
+{{-- @dd($posts->title); --}}
+{{-- @dd($posts) --}}
+  <h4 >special statment:</h4><span>{{$posts->title}}</span>
+   <h4>description:</h4><span>{{$posts->description}}</span>
   </div>
 
 </div>
@@ -40,8 +42,8 @@
   </div>
   <div class="p-3">
 
-  <h4 >Name:</h4><span>{{$post['posted by']}}</span>
-   <h4>Createdat:</h4><span>{{$post['created at']}}</span>
+  <h4 >Name:</h4><span>{{$posts->user->name}}</span>
+   <h4>Createdat:</h4><span>{{$posts->created_at}}</span>
   </div>
 
 </div>
