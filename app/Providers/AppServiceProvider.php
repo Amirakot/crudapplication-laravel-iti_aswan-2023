@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Providers;
 
+namespace App\Providers;
+use DB;
+use Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\pagination\paginator;
 
@@ -24,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+         DB::listen(function($query) {
+            Log::info(
+                $query->sql,
+                $query->bindings,
+                $query->time
+            );
+        });
         paginator::useBootstrap();
         //
     }
